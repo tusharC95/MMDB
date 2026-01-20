@@ -1,0 +1,43 @@
+MMDB - API Key Setup for Testing
+=================================
+
+CURRENT STATE:
+--------------
+- Config.plist currently has placeholder "YOUR_API_KEY_HERE"
+- App will show configuration alert when launched
+
+TO TEST THE APP:
+----------------
+1. Get free API key from https://www.themoviedb.org/settings/api
+
+2. Open MMDB/Config.plist and replace:
+   <string>YOUR_API_KEY_HERE</string>
+   
+   with:
+   <string>your_actual_api_key</string>
+
+3. Build and run - app will work normally
+
+SECURITY VERIFICATION:
+----------------------
+✓ Config.plist is in .gitignore (not committed to git)
+✓ Config.plist.template has placeholder only (safe to commit)
+✓ AppCoordinator shows alert if config missing
+
+WHAT REVIEWERS WILL SEE:
+------------------------
+If Config.plist is not in the repository (which is correct for security):
+- App will show "Configuration Required" alert
+- Alert has clear setup instructions  
+- "Get API Key" button opens https://www.themoviedb.org/settings/api in Safari
+- App exits after Safari opens to allow user to get their key
+
+FILES STRUCTURE:
+----------------
+✓ MMDB/Config.plist          - Your API key (NOT in git)
+✓ MMDB/Config.plist.template - Placeholder (IN git)
+✓ MMDB/Configuration.swift   - Secure loader (IN git)
+✓ .gitignore                 - Excludes Config.plist
+
+This follows industry best practices for API key management in iOS apps.
+
