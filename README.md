@@ -380,16 +380,6 @@ This app uses [The Movie Database (TMDB) API](https://www.themoviedb.org/documen
 - Comprehensive error handling
 - Type-safe networking layer
 
-## Future Enhancements
-
-- [ ] Add movie favorites with local persistence
-- [ ] Implement genre filtering
-- [ ] Add movie trailers using AVKit
-- [ ] Share movie functionality
-- [ ] Localization support
-- [ ] UI test coverage for critical user flows
-- [ ] CI/CD pipeline with automated testing
-
 ## Libraries & Dependencies
 
 ### External Libraries Used: NONE
