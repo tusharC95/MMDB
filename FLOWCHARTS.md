@@ -246,52 +246,6 @@ flowchart TD
 
 ---
 
-## 6. TCA-Inspired State Management Flow
-
-```mermaid
-flowchart TD
-    Start([User Interaction]) --> Dispatch[Dispatch Action to Store]
-    Dispatch --> StoreReceive[Store.dispatch(action)]
-    StoreReceive --> CallReducer[Reducer.reduce(state, action)]
-    
-    CallReducer --> UpdateState[Update State]
-    UpdateState --> CreateEffect{Effect Needed?}
-    
-    CreateEffect -->|Effect.none| PublishState[Publish State to Subscribers]
-    CreateEffect -->|Effect.task| ExecuteTask[Execute Async Task]
-    
-    ExecuteTask --> RunAsync[Run Async Operation]
-    RunAsync --> APICall{API Call Type}
-    
-    APICall -->|Fetch Movies| FetchMovies[MovieService.fetchMoviesByPerson]
-    APICall -->|Search Movies| SearchMovies[MovieService.searchMovies]
-    APICall -->|Search Actor| SearchActor[MovieService.searchPerson]
-    APICall -->|Similar Movies| SimilarMovies[MovieService.fetchSimilarMovies]
-    
-    FetchMovies --> NetworkLayer[Networking Layer]
-    SearchMovies --> NetworkLayer
-    SearchActor --> NetworkLayer
-    SimilarMovies --> NetworkLayer
-    
-    NetworkLayer --> HTTPRequest[APIClient.request]
-    HTTPRequest --> TMDBAPI[TMDB API Server]
-    TMDBAPI --> ParseResponse{Response Status}
-    
-    ParseResponse -->|Success| DecodeJSON[Decode JSON Response]
-    ParseResponse -->|Error| CreateErrorAction[Create Error Action]
-    
-    DecodeJSON --> CreateSuccessAction[Create Success Action]
-    CreateSuccessAction --> DispatchResult[Dispatch Result Action to Store]
-    CreateErrorAction --> DispatchResult
-    
-    DispatchResult --> CallReducer
-    PublishState --> UpdateUI[UI Components Observe State]
-    UpdateUI --> RenderView[Re-render View]
-    RenderView --> End([Updated UI Displayed])
-```
-
----
-
 ## 7. Image Caching & Loading Flow
 
 ```mermaid
