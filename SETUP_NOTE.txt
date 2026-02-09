@@ -20,7 +20,6 @@ TO TEST THE APP:
 
 SECURITY VERIFICATION:
 ----------------------
-✓ Config.plist is in .gitignore (not committed to git)
 ✓ Config.plist.template has placeholder only (safe to commit)
 ✓ AppCoordinator shows alert if config missing
 
