@@ -23,14 +23,6 @@ SECURITY VERIFICATION:
 ✓ Config.plist.template has placeholder only (safe to commit)
 ✓ AppCoordinator shows alert if config missing
 
-WHAT REVIEWERS WILL SEE:
-------------------------
-If Config.plist is not in the repository (which is correct for security):
-- App will show "Configuration Required" alert
-- Alert has clear setup instructions  
-- "Get API Key" button opens https://www.themoviedb.org/settings/api in Safari
-- App exits after Safari opens to allow user to get their key
-
 FILES STRUCTURE:
 ----------------
 ✓ MMDB/Config.plist          - Your API key (NOT in git)
